@@ -41,42 +41,41 @@ time.sleep(2)
 #最小化键盘
 dr.hide_keyboard()
 time.sleep(2)
-# -*-#滑动UP
-# dr.swipe(20,1700,20,200,2000)#第一次滑动
-# time.sleep(1)
-# dr.swipe(20,1700,20,1000,2000)#第二次滑动
-# time.sleep(2)
-# #添加照片
-# TouchAction(dr).press(x=200,y=450).release().perform()
-# time.sleep(2)
+#滑动UP
+dr.swipe(20,1700,20,200,2000)#第一次滑动
+time.sleep(1)
+dr.swipe(20,1700,20,1000,2000)#第二次滑动
+time.sleep(2)
+#添加照片
+TouchAction(dr).press(x=200,y=450).release().perform()
+time.sleep(2)
+dr.find_element_by_id('android:id/button1').click()
+time.sleep(2)
+#dr.switch_to_alert().accept()#弹框允许，暂不可以用方法未实现
+dr.find_element_by_id('com.android.camera:id/v9_shutter_button_internal').click()
+time.sleep(5)
+dr.find_element_by_id('com.android.camera:id/inten_done_apply').click()
+time.sleep(10)
+#添加视频
+#滑动UP
+dr.swipe(20,1700,20,200,2000)#第一次滑动
+time.sleep(1)
+dr.swipe(20,1700,20,1000,2000)#第二次滑动
+time.sleep(2)
+TouchAction(dr).press(x=220,y=840).release().perform()
+time.sleep(2)
 # dr.find_element_by_id('android:id/button1').click()
 # time.sleep(2)
-# #dr.switch_to_alert().accept()#弹框允许，暂不可以用方法未实现
-# dr.find_element_by_id('com.android.camera:id/v9_shutter_button_internal').click()
-# time.sleep(5)
-# dr.find_element_by_id('com.android.camera:id/inten_done_apply').click()
-# time.sleep(10)
-# #添加视频
-# #滑动UP
-# dr.swipe(20,1700,20,200,2000)#第一次滑动
-# time.sleep(1)
-# dr.swipe(20,1700,20,1000,2000)#第二次滑动
-# time.sleep(2)
-# TouchAction(dr).press(x=220,y=840).release().perform()
-# time.sleep(2)
-# # dr.find_element_by_id('android:id/button1').click()
-# # time.sleep(2)
-# #开始
-# TouchAction(dr).press(x=550,y=1700).release().perform()
-# time.sleep(5)
-# #结束录制
-# TouchAction(dr).press(x=550,y=1700).release().perform()
-# time.sleep(3)
-# #上传
-# dr.find_element_by_id('com.android.camera:id/inten_done_apply').click()
-# time.sleep(30)
-# #添加录音
-
+#开始
+TouchAction(dr).press(x=550,y=1700).release().perform()
+time.sleep(5)
+#结束录制
+TouchAction(dr).press(x=550,y=1700).release().perform()
+time.sleep(3)
+#上传
+dr.find_element_by_id('com.android.camera:id/inten_done_apply').click()
+time.sleep(30)
+#添加录音
 #滑动UP
 dr.swipe(20,1700,20,200,2000)#第一次滑动
 time.sleep(1)
@@ -84,12 +83,15 @@ dr.swipe(20,1700,20,1000,2000)#第二次滑动
 time.sleep(2)
 
 time.sleep(3)
-TouchAction(dr).long_press(500,1200,4000).perform().release()
+el=dr.find_element_by_xpath('//*[@text="按住说话"]')
+TouchAction(dr).long_press(el,4000).perform()
+
+dr.find_element_by_id('android:id/button1').click()
 time.sleep(2)
 #添加备注
-dr.find_element_by_id('com.meilin.wulianbaogj:id/remarkET').send_keys('testdata')
+dr.find_element_by_id('com.meilin.wulianbaogj:id/remarkET').send_keys('testdata01')
 time.sleep(2)
 #提交
-dr.find_element_by_class_name('android.widget.Button').click()
+dr.find_element_by_xpath('//*[@text="提交"]').click()
 time.sleep(5)
-
+print("over~")
